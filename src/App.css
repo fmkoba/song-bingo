@@ -5,28 +5,18 @@
   text-align: center;
 }
 
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.card-header > img {
+  width: 30rem;
+  padding: 3rem;
+}
+
+.card-footer > img {
+  width: 20rem;
+  padding: 3rem;
 }
 
 .card-grid {
@@ -35,7 +25,29 @@
 }
 
 .number {
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
   padding: 1rem;
-  margin: 1rem;
-  background-color: aqua;
+  margin: .5rem;
+  border-radius: .5rem;
+  background-color: white;
+  transition: 
+    transform .2s,
+    opacity .15s;
+}
+
+.number:hover {
+  transform: translateY(.3rem);
+}
+
+.number.marked {
+  opacity: .5;
+}
+
+.number > p {
+  margin: 0.4rem;
+} 
+
+.title {
+  font-weight: 700;
 }

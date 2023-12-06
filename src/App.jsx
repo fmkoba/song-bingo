@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import header from './assets/header@2x.png'
+import footer from './assets/footer.png'
+import footer2 from './assets/footer@2x.png'
 
 function App() {
   const [list, setlist] = useState([])
@@ -45,7 +48,6 @@ function Card() {
     display: "flex",
     flexDirection: "column",
     width: "fit-content",
-    border: "1px solid red",
     margin: "1rem",
     padding: "1rem"
   }
@@ -53,13 +55,16 @@ function Card() {
     <div className='card' style={styles}>
       <CardHeader/>
       <CardGrid numbers={shuffle(numbers)}/>
+      <CardFooter/>
     </div>
   )
 }
 
 function CardHeader() {
   return (
-    <h1>BINGO!</h1>
+    <div className="card-header">
+      <img src={header} alt="90POE Bingo" />
+    </div>
   )
 }
 
@@ -73,11 +78,27 @@ function CardGrid({numbers}) {
 }
 
 function CardNumber({number}) {
+  const [marked, setMarked] = useState(false)
+
+  const handleClick = () => {
+    setMarked(!marked)
+  }
+  let fullTitle = songs[number]
+  const title = fullTitle.split('-')[0] 
+  const artist = fullTitle.split('-')[1] || false
   return (
-    <div className='number'>
-      {songs[number]}
+    <div className={`number${ marked ? ' marked': '' }`} onClick={ handleClick }>
+      {title && <p className='title'>{title}</p> }
+      {artist && <p className='artist'>{artist}</p> }
     </div>
   )
 }
 
+function CardFooter() {
+  return (
+    <div className="card-footer">
+      <img src={footer2} alt="Merry Christmas" />
+    </div>
+    )
+}
 export default App
