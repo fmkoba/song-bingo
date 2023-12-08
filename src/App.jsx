@@ -65,15 +65,9 @@ const songs = [
 
 function Card() {
   let numbers = range(0, 36, 1)
-  const styles = {
-    display: "flex",
-    flexDirection: "column",
-    width: "fit-content",
-    margin: "1rem",
-    padding: "1rem"
-  }
+
   return (
-    <div className='card' style={styles}>
+    <div className='card'>
       <CardHeader/>
       <CardGrid numbers={shuffle(numbers)}/>
       <CardFooter/>
@@ -90,7 +84,7 @@ function CardHeader() {
 }
 
 function CardGrid({numbers}) {
-
+console.log(numbers, 'asdasd')
   return (
     <div className='card-grid'>
       {numbers.slice(0, 16).map(number => <CardNumber number={number} key={number} /> )}
@@ -100,7 +94,7 @@ function CardGrid({numbers}) {
 
 function CardNumber({number}) {
   const [marked, setMarked] = useState(false)
-  let isLargeTitle = false
+
 
   const handleClick = () => {
     setMarked(!marked)
@@ -108,10 +102,10 @@ function CardNumber({number}) {
   let fullTitle = songs[number]
   const title = fullTitle.split('-')[1] || false
   const artist = fullTitle.split('-')[0] || false
-  if (title.length > 30)
+
   return (
     <div className={`number${ marked ? ' marked': '' }`} onClick={ handleClick }>
-      {title && <p className='title'>{title}</p> }
+      {title  && <p className='title'>{title}</p> }
       {artist && <p className='artist'>{artist}</p> }
     </div>
   )
