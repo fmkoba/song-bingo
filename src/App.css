@@ -31,6 +31,9 @@
   margin: .5rem;
   border-radius: .5rem;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   transition: 
     transform .2s,
     opacity .15s;
@@ -45,7 +48,7 @@
 }
 
 .number > p {
-  margin: 0.4rem;
+  margin: 0 0.4rem;
 } 
 
 .title {
