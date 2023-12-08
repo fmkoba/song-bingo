@@ -24,26 +24,47 @@ const shuffle = (array) => {
 }
 
 const songs = [
-  "Easy On Me - Adele",
-  "Miley Cyrus - Flowers ",
-  "Angel Baby - Troye Sivan",
-  "Save Your Tears ",
-  "Stuck With U",
-  "Mercy - Shawn Mendes",
-  "We Don't Talk Anymore",
-  "STAY - Justin Bieber",
-  "Blinding Lights - The Weeknd",
-  "Smooth - Santana",
-  "Uptown Funk - Mark Ronson",
-  "How Do I Live - LeAnn Rimes",
-  "Party Rock Anthem - LMFAO",
-  "I Gotta Feeling - The Black Eyed Peas",
-  "Macarena - Los Del Rio",
-  "Shape of You - Ed Sheeran"
+  "Abba - Mamma Mia",
+"Maroon 5 - Sugar",
+"The Weeknd - Blinding Lights",
+"Tones and I - Dance Monkey",
+"Gotye - Somebody That I Used To Know",
+"Shawn Mendes - Treat You Bette",
+"Luis Fonsi - Despacito ft. Daddy Yanke",
+"Mark Ronson - Uptown Funk",
+"Ed Sheeran - Shape Of You",
+"Avicii - Wake Me Up",
+"Pharrell Williams - Happy",
+"Adele - Rolling in the Deep",
+"Daft Punk - Get Lucky",
+"Shakira - Waka Waka",
+"PSY - GANGNAM STYL",
+"Crazy Frog - Axel F",
+"Taylor Swift - Shake It Of",
+"Clean Bandit - Rockabye",
+"DJ Snake - Taki Taki",
+"Jason Derulo - Swalla",
+"Michael Jackson - Billie Jean",
+"The Police - Every Breath You Take",
+"Los Del Rio - Macarena",
+"Britney Spears - Oops!...I Did It Again",
+"Mariah Carey - All I Want For Christmas Is You",
+"Queen - I Want To Break Free",
+"Haddaway - What Is Love",
+"Metallica: Sad But True",
+"Hotel California - Eagles",
+"Kalush Orchestra - Stefania",
+"Passenger - Let Her Go",
+"The Beatles - Yesterday",
+"Van Morrison - Brown Eyed Girl",
+"THE SHIRELLES - WILL U STILL LOVE ME TOMORRO",
+"Adele - Hello",
+"Eiffel 65 - Blue",
+"Fugees - Killing Me Softly With His Song"
 ]
 
 function Card() {
-  let numbers = range(0,15,1)
+  let numbers = range(0, 36, 1)
   const styles = {
     display: "flex",
     flexDirection: "column",
@@ -72,7 +93,7 @@ function CardGrid({numbers}) {
 
   return (
     <div className='card-grid'>
-      {numbers.map(number => <CardNumber number={number} key={number} /> )}
+      {numbers.slice(0, 16).map(number => <CardNumber number={number} key={number} /> )}
     </div>
   )
 }
@@ -84,8 +105,8 @@ function CardNumber({number}) {
     setMarked(!marked)
   }
   let fullTitle = songs[number]
-  const title = fullTitle.split('-')[0] 
-  const artist = fullTitle.split('-')[1] || false
+  const title = fullTitle.split('-')[1] || false
+  const artist = fullTitle.split('-')[0] || false
   return (
     <div className={`number${ marked ? ' marked': '' }`} onClick={ handleClick }>
       {title && <p className='title'>{title}</p> }
