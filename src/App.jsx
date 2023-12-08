@@ -51,7 +51,7 @@ const songs = [
 "Mariah Carey - All I Want For Christmas Is You",
 "Queen - I Want To Break Free",
 "Haddaway - What Is Love",
-"Metallica: Sad But True",
+"Metallica - Sad But True",
 "Hotel California - Eagles",
 "Kalush Orchestra - Stefania",
 "Passenger - Let Her Go",
@@ -100,6 +100,7 @@ function CardGrid({numbers}) {
 
 function CardNumber({number}) {
   const [marked, setMarked] = useState(false)
+  let isLargeTitle = false
 
   const handleClick = () => {
     setMarked(!marked)
@@ -107,6 +108,7 @@ function CardNumber({number}) {
   let fullTitle = songs[number]
   const title = fullTitle.split('-')[1] || false
   const artist = fullTitle.split('-')[0] || false
+  if (title.length > 30)
   return (
     <div className={`number${ marked ? ' marked': '' }`} onClick={ handleClick }>
       {title && <p className='title'>{title}</p> }
